@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JR Capas | Excelência em Revestimento Automotivo em Quixadá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=sp" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #c5a059; /* Gold/Bronze accent */
+            --dark: #0f1113;
+            --dark-lighter: #1a1d21;
+            --text-gray: #a0a0a0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        .font-luxury {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-leather {
+            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1598517503241-03329174b927?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px -10px rgba(197, 160, 89, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .glass-effect {
+            background: rgba(26, 29, 33, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .btn-premium {
+            background: linear-gradient(45deg, #c5a059, #e2c275);
+            color: #000;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-premium:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background-color: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Floating WhatsApp -->
+    <a 
+  href="https://wa.me/message/ZXNTNGDTC4QXJ1"
+  target="_blank"
+  class="whatsapp-float text-white text-3xl"
+>
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 py-4 px-6 md:px-12" id="navbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="text-3xl font-extrabold tracking-tighter text-white">
+                    JR <span class="text-[#c5a059]">CAPAS</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 font-semibold uppercase text-xs tracking-widest">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#servicos" class="nav-link">Serviços</a>
+                <a href="#galeria" class="nav-link">Galeria</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="https://wa.me/message/ZXNTNGDTC4QXJ1" class="btn-premium px-6 py-2.5 rounded text-xs">Orçamento Express</a>
+            </div>
+
+            <button class="md:hidden text-2xl" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-bold transition-all duration-500 translate-x-full">
+        <button class="absolute top-8 right-8 text-3xl" id="closeMenuBtn"><i class="fas fa-times"></i></button>
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#sobre" class="mobile-link">Sobre</a>
+        <a href="#servicos" class="mobile-link">Serviços</a>
+        <a href="#galeria" class="mobile-link">Galeria</a>
+        <a href="#contato" class="mobile-link">Contato</a>
+        <a href="https://wa.me/message/ZXNTNGDTC4QXJ1" class="btn-premium px-8 py-3 rounded-full mt-4">WhatsApp</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Luxo Automotivo" class="w-full h-full object-cover brightness-50">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1113] via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
+            <span class="inline-block py-1 px-4 border border-[#c5a059] text-[#c5a059] rounded-full text-xs font-bold mb-6 tracking-widest uppercase">Especialistas em Quixadá - CE</span>
+            <h1 class="text-5xl md:text-8xl font-luxury mb-6 leading-tight">Sofisticação em cada <span class="text-[#c5a059]">revestimento.</span></h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light">Transforme o interior do seu veículo com acabamento artesanal em couro e capas sob medida de alta performance.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <a href="#servicos" class="btn-premium px-10 py-4 rounded w-full md:w-auto">Conhecer Serviços</a>
+                <a href="https://wa.me/message/ZXNTNGDTC4QXJ1" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-10 py-4 rounded transition-all w-full md:w-auto">Falar com Consultor</a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <a href="#sobre" class="text-white opacity-50"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-24 px-6 md:px-12 bg-[#0f1113]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative" data-aos="fade-right">
+                <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[#c5a059]"></div>
+                <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Trabalho em Couro" class="rounded-lg shadow-2xl">
+                <div class="absolute -bottom-6 -right-6 bg-[#c5a059] p-8 hidden md:block">
+                    <p class="text-black font-bold text-4xl">15+</p>
+                    <p class="text-black text-xs font-bold uppercase tracking-tighter">Anos de Experiência</p>
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <h2 class="text-[#c5a059] font-bold text-sm tracking-[0.3em] uppercase mb-4">JR Capas Quixadá</h2>
+                <h3 class="text-4xl md:text-5xl font-luxury mb-8">Tradição, Qualidade e Acabamento Premium.</h3>
+                <p class="text-gray-400 leading-relaxed mb-6 text-lg">
+                    Localizada no coração de Quixadá, a JR Capas é referência em serviços automotivos que unem durabilidade e estética refinada. Nosso foco é superar as expectativas de quem busca exclusividade.
+                </p>
+                <p class="text-gray-400 leading-relaxed mb-8">
+                    Utilizamos apenas materiais de primeira linha, desde couros legítimos até tecidos sintéticos de alta tecnologia, garantindo proteção total e valorização do seu patrimônio.
+                </p>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center space-x-3"><i class="fas fa-check text-[#c5a059]"></i> <span>Atendimento personalizado</span></li>
+                    <li class="flex items-center space-x-3"><i class="fas fa-check text-[#c5a059]"></i> <span>Garantia de qualidade JR Capas</span></li>
+                    <li class="flex items-center space-x-3"><i class="fas fa-check text-[#c5a059]"></i> <span>Mão de obra especializada em Quixadá</span></li>
+                </ul>
+                <a href="https://wa.me/message/ZXNTNGDTC4QXJ1" class="inline-block border-b-2 border-[#c5a059] pb-2 font-bold hover:text-[#c5a059] transition-colors">Solicitar Visita Técnica <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="py-24 px-6 md:px-12 bg-leather">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-[#c5a059] font-bold text-sm tracking-[0.3em] uppercase mb-4">Nossa Expertise</h2>
+                <h3 class="text-4xl md:text-5xl font-luxury mb-6">Soluções Completas</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Servico 1 -->
+                <div class="service-card glass-effect p-8 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-4xl text-[#c5a059] mb-6"><i class="fas fa-car-side"></i></div>
+                    <h4 class="text-xl font-bold mb-4">Capas Sob Medida</h4>
+                    <p class="text-gray-400 text-sm mb-6">Fabricação exclusiva para proteção total da tapeçaria original contra desgaste e sujeira.</p>
+                </div>
+
+                <!-- Servico 2 -->
+                <div class="service-card glass-effect p-8 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-4xl text-[#c5a059] mb-6"><i class="fas fa-couch"></i></div>
+                    <h4 class="text-xl font-bold mb-4">Revestimento Couro</h4>
+                    <p class="text-gray-400 text-sm mb-6">Couro legítimo e sintético de alto padrão para bancos e laterais de porta, conforto premium.</p>
+                </div>
+
+                <!-- Servico 3 -->
+                <div class="service-card glass-effect p-8 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-4xl text-[#c5a059] mb-6"><i class="fas fa-dharmachakra"></i></div>
+                    <h4 class="text-xl font-bold mb-4">Volantes Profissionais</h4>
+                    <p class="text-gray-400 text-sm mb-6">Costura manual e personalizada para volantes, proporcionando melhor pegada e luxo.</p>
+                </div>
+
+                <!-- Servico 4 -->
+                <div class="service-card glass-effect p-8 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-4xl text-[#c5a059] mb-6"><i class="fas fa-tools"></i></div>
+                    <h4 class="text-xl font-bold mb-4">Reforma & Conserto</h4>
+                    <p class="text-gray-400 text-sm mb-6">Restauração completa de espumas, molas e estruturas de bancos automotivos.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center" data-aos="fade-up">
+                <p class="text-gray-300 italic mb-8">Também trabalhamos com capas e encerados para fins industriais e gerais.</p>
+                <a href="https://wa.me/message/ZXNTNGDTC4QXJ1" class="btn-premium px-12 py-4 rounded-full">Quero um orçamento personalizado</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Section -->
+    <section id="galeria" class="py-24 px-6 md:px-12 bg-[#1a1d21]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 space-y-4">
+                <div data-aos="fade-right">
+                    <h2 class="text-[#c5a059] font-bold text-sm tracking-[0.3em] uppercase mb-4">Resultados Reais</h2>
+                    <h3 class="text-4xl md:text-5xl font-luxury">Portfólio JR Capas</h3>
+                </div>
+                <div class="hidden md:block" data-aos="fade-left">
+                    <a href="https://www.instagram.com/jr_capas_qxd?igsh=OWl3a2N3eGtoaWc4" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-white transition-all">
+                        <span>Ver mais no Instagram</span>
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+    <div class="gallery-item aspect-square bg-gray-800" data-aos="fade-up" data-aos-delay="100">
+        <img src="imagens/IMG-20251229-WA0000.jpg" alt="Trabalho em bancos automotivos JR Capas" class="w-full h-full object-cover grayscale hover:grayscale-0">
+    </div>
+
+    <div class="gallery-item aspect-square bg-gray-800" data-aos="fade-up" data-aos-delay="200">
+        <img src="imagens/IMG-20251229-WA0005.jpg" alt="Revestimento automotivo em couro JR Capas" class="w-full h-full object-cover grayscale hover:grayscale-0">
+    </div>
+
+    <div class="gallery-item aspect-square bg-gray-800" data-aos="fade-up" data-aos-delay="300">
+        <img src="imagens/IMG-20251229-WA0007.jpg" alt="Detalhe de acabamento automotivo JR Capas" class="w-full h-full object-cover grayscale hover:grayscale-0">
+    </div>
+
+    <div class="gallery-item aspect-square bg-gray-800" data-aos="fade-up" data-aos-delay="400">
+        <img src="imagens/IMG-20251229-WA0008.jpg" alt="Banco automotivo reformado JR Capas" class="w-full h-full object-cover grayscale hover:grayscale-0">
+    </div>
+
+    <div class="gallery-item aspect-square bg-gray-800" data-aos="fade-up" data-aos-delay="100">
+        <img src="imagens/IMG-20251229-WA0009.jpg" alt="Interior automotivo personalizado JR Capas" class="w-full h-full object-cover grayscale hover:grayscale-0">
+    </div>
+
+</div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-24 px-6 md:px-12 bg-leather relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+            <div data-aos="fade-right">
+                <h2 class="text-[#c5a059] font-bold text-sm tracking-[0.3em] uppercase mb-4">Contato</h2>
+                <h3 class="text-4xl md:text-5xl font-luxury mb-8">Vamos transformar seu veículo?</h3>
+                <p class="text-gray-400 mb-10">Estamos prontos para realizar o projeto dos seus sonhos. Entre em contato ou visite nossa oficina em Quixadá.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 glass-effect rounded-full flex items-center justify-center text-[#c5a059] flex-shrink-0">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold">Endereço</h5>
+                            <p class="text-gray-400 text-sm">Rua Benjamim Constant, 614 - Alto São Francisco, Quixadá - CE, 63900-000</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 glass-effect rounded-full flex items-center justify-center text-[#c5a059] flex-shrink-0">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold">WhatsApp</h5>
+                            <p class="text-gray-400 text-sm">(88) 9 8821-9858</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 glass-effect rounded-full flex items-center justify-center text-[#c5a059] flex-shrink-0">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold">Horário de Atendimento</h5>
+                            <p class="text-gray-400 text-sm">Segunda a Sexta: 08:00 às 18:00<br>Sábado: 08:00 às 14:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-effect p-8 rounded-2xl border border-white/5" data-aos="fade-left">
+                <form id="contactForm" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="Nome" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-[#c5a059] transition-all">
+                        <input type="text" placeholder="Telefone" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-[#c5a059] transition-all">
+                    </div>
+                    <input type="text" placeholder="Veículo (Modelo/Ano)" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-[#c5a059] transition-all">
+                    <select class="w-full bg-[#1a1d21] border border-white/10 rounded-lg p-3 outline-none focus:border-[#c5a059] transition-all text-gray-400">
+                        <option value="">Selecione o Serviço</option>
+                        <option value="capas">Capas sob medida</option>
+                        <option value="couro">Revestimento em Couro</option>
+                        <option value="volante">Volante</option>
+                        <option value="reforma">Reforma de Bancos</option>
+                    </select>
+                    <textarea rows="4" placeholder="Sua Mensagem" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-[#c5a059] transition-all"></textarea>
+                    <button type="submit" class="btn-premium w-full py-4 rounded-lg">Enviar Mensagem via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+            <div>
+                <div class="text-3xl font-extrabold tracking-tighter text-white">
+                    JR <span class="text-[#c5a059]">CAPAS</span>
+                </div>
+                <p class="text-gray-500 text-xs mt-2 uppercase tracking-widest">Excelência Automotiva em Quixadá</p>
+            </div>
+            
+            <div class="flex space-x-6 text-xl text-gray-400">
+    <!-- Instagram -->
+    <a 
+      href="https://www.instagram.com/jr_capas_qxd?igsh=OWl3a2N3eGtoaWc4"
+      target="_blank"
+      class="hover:text-[#c5a059] transition-colors"
+      aria-label="Instagram JR Capas"
+    >
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <!-- WhatsApp -->
+    <a 
+      href="https://wa.me/message/ZXNTNGDTC4QXJ1"
+      target="_blank"
+      class="hover:text-[#c5a059] transition-colors"
+      aria-label="WhatsApp JR Capas"
+    >
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+            <p class="text-gray-500 text-xs uppercase tracking-widest">© 2025 JR Capas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('glass-effect', 'shadow-lg', 'py-3');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('glass-effect', 'shadow-lg', 'py-3');
+                nav.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        const hideMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+        };
+
+        closeMenuBtn.addEventListener('click', hideMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', hideMenu));
+
+        // Form Submission (Simulated)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real scenario, this would format the data and redirect to WhatsApp
+            const name = this.querySelectorAll('input')[0].value;
+            const text = encodeURIComponent(`Olá, sou ${name}. Gostaria de um orçamento para meu veículo.`);
+            window.open(`https://wa.me/message/ZXNTNGDTC4QXJ1?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+</html>
+</html>
