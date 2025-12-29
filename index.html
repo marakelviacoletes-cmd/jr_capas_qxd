@@ -147,11 +147,29 @@
     <!-- Header -->
     <header class="fixed w-full z-50 transition-all duration-300 py-4 px-6 md:px-12" id="navbar">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="text-3xl font-extrabold tracking-tighter text-white">
-                    JR <span class="text-[#c5a059]">CAPAS</span>
-                </div>
-            </div>
+            <div class="flex items-center">
+    <a href="#home" class="group">
+        <div class="flex items-center gap-3 px-3 py-1.5 rounded-lg
+            bg-white/5
+            border border-[#c5a059]/20
+            transition-all duration-300
+            hover:border-[#c5a059]/60
+            hover:bg-white/10
+            opacity-80 hover:opacity-100">
+
+        
+            <img 
+                src="imagens/Logo_13.jpg"
+                alt="JR Capas - Capas e revestimentos automotivos em Quixadá"
+                class="h-9 md:h-10 object-contain"
+            >
+
+            <span class="hidden md:block text-xs tracking-widest font-semibold text-[#c5a059] uppercase">
+                JR Capas
+            </span>
+        </div>
+    </a>
+</div>
             
             <nav class="hidden md:flex space-x-8 font-semibold uppercase text-xs tracking-widest">
                 <a href="#home" class="nav-link">Home</a>
@@ -190,7 +208,6 @@
         </div>
         
         <div class="relative z-10 text-center px-4 max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
-            <span class="inline-block py-1 px-4 border border-[#c5a059] text-[#c5a059] rounded-full text-xs font-bold mb-6 tracking-widest uppercase">Especialistas em Quixadá - CE</span>
             <h1 class="text-5xl md:text-8xl font-luxury mb-6 leading-tight">Sofisticação em cada <span class="text-[#c5a059]">revestimento.</span></h1>
             <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light">Transforme o interior do seu veículo com acabamento artesanal em couro e capas sob medida de alta performance.</p>
             <div class="flex flex-col md:flex-row items-center justify-center gap-4">
@@ -198,7 +215,7 @@
                 <a href="https://wa.me/message/ZXNTNGDTC4QXJ1" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 px-10 py-4 rounded transition-all w-full md:w-auto">Falar com Consultor</a>
             </div>
         </div>
-
+        
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
             <a href="#sobre" class="text-white opacity-50"><i class="fas fa-chevron-down"></i></a>
         </div>
@@ -210,10 +227,6 @@
             <div class="relative" data-aos="fade-right">
                 <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[#c5a059]"></div>
                 <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Trabalho em Couro" class="rounded-lg shadow-2xl">
-                <div class="absolute -bottom-6 -right-6 bg-[#c5a059] p-8 hidden md:block">
-                    <p class="text-black font-bold text-4xl">15+</p>
-                    <p class="text-black text-xs font-bold uppercase tracking-tighter">Anos de Experiência</p>
-                </div>
             </div>
             <div data-aos="fade-left">
                 <h2 class="text-[#c5a059] font-bold text-sm tracking-[0.3em] uppercase mb-4">JR Capas Quixadá</h2>
@@ -274,7 +287,20 @@
             
             <div class="mt-12 text-center" data-aos="fade-up">
                 <p class="text-gray-300 italic mb-8">Também trabalhamos com capas e encerados para fins industriais e gerais.</p>
-                <a href="https://wa.me/message/ZXNTNGDTC4QXJ1" class="btn-premium px-12 py-4 rounded-full">Quero um orçamento personalizado</a>
+                 <a
+    href="https://wa.me/message/ZXNTNGDTC4QXJ1"
+    class="btn-premium 
+           inline-block
+           w-full sm:w-auto
+           px-6 sm:px-12
+           py-4
+           rounded-xl
+           text-center
+           leading-relaxed"
+>
+    Quero um orçamento<br class="block sm:hidden">
+    personalizado
+</a>
             </div>
         </div>
     </section>
@@ -386,12 +412,9 @@
     <!-- Footer -->
     <footer class="bg-black py-12 px-6 md:px-12 border-t border-white/5">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
-            <div>
-                <div class="text-3xl font-extrabold tracking-tighter text-white">
-                    JR <span class="text-[#c5a059]">CAPAS</span>
+            <div>               
                 </div>
-                <p class="text-gray-500 text-xs mt-2 uppercase tracking-widest">Excelência Automotiva em Quixadá</p>
-            </div>
+               
             
             <div class="flex space-x-6 text-xl text-gray-400">
     <!-- Instagram -->
@@ -468,5 +491,4 @@
         });
     </script>
 </body>
-</html>
-</html>
+            </html>
